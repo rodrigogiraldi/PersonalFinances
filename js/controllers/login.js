@@ -1,4 +1,4 @@
-﻿app.controller('loginController', function ($scope, $http) {
+﻿app.controller('loginController', function ($scope, $http, $location) {
     $scope.isRegister = false;
     $scope.emailOrPasswordWrong = false;
 
@@ -11,6 +11,10 @@
                 }
                 else {
                     $scope.emailOrPasswordWrong = false;
+                    window.location.replace("/");
+                    //$location.path('/Home');
+                    //$location.url('/Home');
+                    //$location.url('/Home');
                 }
             });
     };

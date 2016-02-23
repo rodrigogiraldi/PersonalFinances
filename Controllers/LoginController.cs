@@ -17,7 +17,14 @@ namespace PersonalFinances.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            if(Session["email"] == null)
+            {
+                return View();
+            }
+            else
+            {
+                return Redirect("/");
+            }
         }
 
         public ActionResult Signin()
