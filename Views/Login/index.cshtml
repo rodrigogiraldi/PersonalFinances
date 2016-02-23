@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/Content/signin.css" rel="stylesheet">
+
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+
+    <script src="~/js/app.js"></script>
+    @*<script src="~/js/config.js"></script>*@
+    <script src="~/js/controllers/login.js"></script>
+</head>
+<body ng-app="appPersonal" ng-controller="loginController">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="jumbotron">
+                    <div>
+                        <form class="form-signin" ng-show="!isRegister">
+                            <h2 class="form-signin-heading">Sign in</h2>
+                            <input class="form-control" placeholder="Email" ng-model="user.email" />
+                            <input type="password" class="form-control" placeholder="Password" ng-model="user.password" />
+                            <input type="button" class="btn btn-lg btn-primary btn-block" value="Sign in" ng-click="checkLogin()" />
+
+                            @*<label for="inputEmail" class="sr-only">Email or login</label>
+                            <input id="inputEmail" class="form-control" placeholder="Email" ng-model="user.email" required autofocus >
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="user.password" required>*@
+                            
+                            @*<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>*@
+                        </form>
+                        <div class="alert alert-danger" role="alert" ng-show="emailOrPasswordWrong">Email or password wrong!</div>
+                        <div ng-show="!isRegister" ng-click="isRegister = !isRegister">
+                            @*<center><h4>Don't have account? <a href="#Signup">Sign up here</a></h4></center>*@
+                            <center><h4>Don't have account? <a href="">Sign up here</a></h4></center>
+                        </div>
+                    </div>
+                    <div>
+                        <form class="form-signin" ng-show="isRegister">
+                            <h2 class="form-signin-heading">Sign up</h2>
+                            <input class="form-control" placeholder="Email address" ng-model="user.email" />
+                            <input type="password" class="form-control" placeholder="Password" ng-model="user.password" />
+                            <input type="password" class="form-control" placeholder="Repeat the password" ng-model="passwordRepeat" />
+                            <input type="button" class="btn btn-lg btn-primary btn-block" value="Sign up" ng-click="createUser()" />
+                            @*<label for="inputEmail" class="sr-only">Email address</label>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <input class="form-control" placeholder="Password" />
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Repeat the password" required>*@
+                            @*<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>*@
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+</body>
+</html>
