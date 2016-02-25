@@ -41,9 +41,9 @@
                             @*<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>*@
                         </form>
                         <div class="alert alert-danger" role="alert" ng-show="emailOrPasswordWrong">Email or password wrong!</div>
-                        <div ng-show="!isRegister" ng-click="isRegister = !isRegister">
+                        <div ng-show="!isRegister">
                             @*<center><h4>Don't have account? <a href="#Signup">Sign up here</a></h4></center>*@
-                            <center><h4>Don't have account? <a href="">Sign up here</a></h4></center>
+                            <center><h4>Don't have account? <a href="" ng-click="isRegister = !isRegister">Sign up here</a></h4></center>
                         </div>
                     </div>
                     <div>

@@ -2,7 +2,7 @@
     $scope.isRegister = false;
     $scope.emailOrPasswordWrong = false;
 
-    $scope.checkLogin = function () {
+    $scope.checkLogin = function() {
         $http
             .post('/Login/Read', $scope.user)
             .then(function(response) {
@@ -12,18 +12,33 @@
                 else {
                     $scope.emailOrPasswordWrong = false;
                     window.location.replace("/");
-                    //$location.path('/Home');
-                    //$location.url('/Home');
-                    //$location.url('/Home');
                 }
             });
     };
 
-    $scope.createUser = function () {
+    $scope.createUser = function(){
         $http
             .post('/Login/Create', $scope.user)
-            .then(function (response) {
+            .then(function(response) {
                 var result = response;
+            });
+    }
+
+    $scope.getUsuario = function(){
+        $http
+            .get('/Login/Current')
+            .then(function(response) {
+                $scope.email = response.data.email;
+            });
+    }
+
+    $scope.logout = function(){
+        $http
+            .get('/Login/Logout')
+            .then(function (response) {
+                if (response.data.Msg == 'logout done') {
+                    window.location.replace("/Login");
+                }
             });
     }
 

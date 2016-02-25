@@ -71,9 +71,16 @@ namespace PersonalFinances.Controllers
         {
             this.loginService.Create(user);
         }
-        public void Logout()
+        public JsonResult Logout()
         {
             Session["email"] = null;
+
+            return Json(new {Msg = "logout done" },JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Current()
+        {
+            return Json(new { email = Session["email"] }, JsonRequestBehavior.AllowGet);
         }
     }
 }

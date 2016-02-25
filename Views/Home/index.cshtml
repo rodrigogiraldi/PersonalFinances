@@ -17,10 +17,18 @@
 
     <!-- Custom styles for this template -->
     <link href="~/Content/dashboard.css" rel="stylesheet">
+    <link href="~/Content/styles.css" rel="stylesheet" />
 
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+
+    <script src="~/js/app.js"></script>
+    <script src="~/js/controllers/login.js"></script>
+    <script src="~/js/controllers/session.js"></script>
+    <script src="~/js/controllers/home.js"></script>
 </head>
 
-<body>
+<body ng-app="appPersonal">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -33,16 +41,12 @@
                 </button>
                 <a class="navbar-brand" href="#">Personal Finances</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class="navbar-collapse collapse" ng-controller="loginController" ng-init="getUsuario()">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li id="loginEmail">{{email}}</li>
                     <li><a href="#">Profile</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="" ng-click="logout()">Logout</a></li>
                 </ul>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form>
             </div>
         </div>
     </nav>
@@ -83,4 +87,5 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 </body>
+
 </html>
