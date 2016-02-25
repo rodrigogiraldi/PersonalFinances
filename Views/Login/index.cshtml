@@ -26,39 +26,26 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="jumbotron">
-                    <div>
-                        <form class="form-signin" ng-show="!isRegister">
+                    <div ng-show="!isRegister">
+                        <form name="formLogin" class="form-signin" ng-submit="checkLogin()">
                             <h2 class="form-signin-heading">Sign in</h2>
-                            <input class="form-control" placeholder="Email" ng-model="user.email" />
-                            <input type="password" class="form-control" placeholder="Password" ng-model="user.password" />
-                            <input type="button" class="btn btn-lg btn-primary btn-block" value="Sign in" ng-click="checkLogin()" />
-
-                            @*<label for="inputEmail" class="sr-only">Email or login</label>
-                            <input id="inputEmail" class="form-control" placeholder="Email" ng-model="user.email" required autofocus >
-                            <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="user.password" required>*@
-                            
-                            @*<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>*@
+                            <input name="email" type="email" class="form-control" placeholder="Email" required ng-model="user.email" />
+                            <input name="password" type="password" class="form-control" placeholder="Password" required ng-model="user.password" />
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" ng-click="checkLogin()" />
                         </form>
+                        <div class="alert alert-warning" role="alert" ng-show="formLogin.email.$dirty && !formLogin.email.$valid">Field email isn't right.</div>
+                        <div class="alert alert-warning" role="alert" ng-show="formLogin.password.$dirty && !formLogin.password.$valid">Field password is required.</div>
+                        <div class="alert alert-danger" role="alert" ng-show="camposInvalidos">Check required fields!</div>
                         <div class="alert alert-danger" role="alert" ng-show="emailOrPasswordWrong">Email or password wrong!</div>
-                        <div ng-show="!isRegister">
-                            @*<center><h4>Don't have account? <a href="#Signup">Sign up here</a></h4></center>*@
-                            <center><h4>Don't have account? <a href="" ng-click="isRegister = !isRegister">Sign up here</a></h4></center>
-                        </div>
+                        <center><h4>Don't have account? <a href="" ng-click="prepararFormCreate()">Sign up here</a></h4></center>
                     </div>
                     <div>
-                        <form class="form-signin" ng-show="isRegister">
+                        <form class="form-signin" ng-submit="createUser()" ng-show="isRegister">
                             <h2 class="form-signin-heading">Sign up</h2>
                             <input class="form-control" placeholder="Email address" ng-model="user.email" />
                             <input type="password" class="form-control" placeholder="Password" ng-model="user.password" />
                             <input type="password" class="form-control" placeholder="Repeat the password" ng-model="passwordRepeat" />
                             <input type="button" class="btn btn-lg btn-primary btn-block" value="Sign up" ng-click="createUser()" />
-                            @*<label for="inputEmail" class="sr-only">Email address</label>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                            <input class="form-control" placeholder="Password" />
-                            <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Repeat the password" required>*@
-                            @*<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>*@
                         </form>
                     </div>
                 </div>

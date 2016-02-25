@@ -2,19 +2,36 @@
     $scope.isRegister = false;
     $scope.emailOrPasswordWrong = false;
 
-    $scope.checkLogin = function() {
-        $http
-            .post('/Login/Read', $scope.user)
-            .then(function(response) {
-                if (response.data.Msg != undefined) {
-                    $scope.emailOrPasswordWrong = true;
-                }
-                else {
-                    $scope.emailOrPasswordWrong = false;
-                    window.location.replace("/");
-                }
-            });
+    $scope.checkLogin = function () {
+        var validacaoOk = $scope.formLogin.$valid;
+
+        if (validacaoOk) {
+            $scope.camposInvalidos = false;
+            $http
+                .post('/Login/Read', $scope.user)
+                .then(function (response) {
+                    if (response.data.Msg != undefined) {
+                        $scope.emailOrPasswordWrong = true;
+                    }
+                    else {
+                        $scope.emailOrPasswordWrong = false;
+                        window.location.replace("/");
+                    }
+                });
+        }
+        else {
+            $scope.camposInvalidos = true;
+            $scope.emailOrPasswordWrong = false;
+        }
+
     };
+
+    $scope.prepararFormCreate = function () {
+        $scope.isRegister = !$scope.isRegister;
+        $scope.emailOrPasswordWrong = false;
+        $scope.user.email = '';
+        $scope.user.password = '';
+    }
 
     $scope.createUser = function(){
         $http
