@@ -26,6 +26,7 @@
     <script src="~/js/controllers/login.js"></script>
     <script src="~/js/controllers/session.js"></script>
     <script src="~/js/controllers/home.js"></script>
+    <script src="~/js/controllers/sidebar.js"></script>
 </head>
 
 <body ng-app="appPersonal">
@@ -39,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Personal Finances</a>
+                @*<a class="navbar-brand" href="#">Personal Finances</a>*@
             </div>
             <div id="navbar" class="navbar-collapse collapse" ng-controller="loginController" ng-init="getUsuario()">
                 <ul class="nav navbar-nav navbar-right">
@@ -54,23 +55,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Reports</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Export</a></li>
+                <ul class="nav nav-sidebar" ng-controller="sideBarController">
+                    <li class="active" ng-click="bills = !bills"><a href="#">Bills<span class="sr-only">(current)</span></a></li>
+                    <li ng-show="bills"><a href="#">Create</a></li>
+                    <li ng-show="bills"><a href="#">Edit</a></li>
+                    <li ng-show="bills"><a href="#">Search</a></li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item</a></li>
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
-                    <li><a href="">More navigation</a></li>
+                    <li class="active" ng-click="charts = !charts"><a href="#">Charts<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#" ng-show="charts">Column</a></li>
+                    <li><a href="#" ng-show="charts">Pizza</a></li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
+                    <li class="active" ng-click="reports = !reports"><a href="#">Reports<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#" ng-show="reports">Report 01</a></li>
+                    <li><a href="#" ng-show="reports">Report 02</a></li>
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

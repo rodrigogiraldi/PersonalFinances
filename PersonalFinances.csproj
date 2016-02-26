@@ -123,6 +123,7 @@
     <Content Include="js\controllers\home.js" />
     <Content Include="js\controllers\login.js" />
     <Content Include="js\controllers\session.js" />
+    <Content Include="js\controllers\sidebar.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
