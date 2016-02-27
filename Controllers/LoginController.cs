@@ -41,29 +41,12 @@ namespace PersonalFinances.Controllers
         public JsonResult Read(User user)
         {
             return Json(this.loginService.CheckLogin(user));
-            //var loginOk = this.loginService.CheckLogin(user);
-            //return Json(loginOk);
-            //if (loginOk)
-            //{
-            //    return Json(user);
-            //}
-            //else
-            //{
-            //    return Json(new { Msg = "Email or password wrong" });
-            //}
+        }
 
-            //var loginOk = this.loginService.CheckLogin(user);
-
-            //if (loginOk)
-            //{
-            //    user.Password = "";
-            //    return Json(user, JsonRequestBehavior.AllowGet);
-            //}
-            //else
-            //{
-            //    string result = "Email or password wrong";
-            //    return Json(result, JsonRequestBehavior.AllowGet);
-            //}
+        [HttpPost]
+        public JsonResult CheckEmail(User user)
+        {
+            return Json(this.loginService.CheckEmail(user.Email));
         }
 
         [HttpPost]

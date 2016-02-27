@@ -38,6 +38,21 @@ namespace PersonalFinances.Services
             }
         }
 
+        public object CheckEmail(string email)
+        {
+            var find = this.Context.USERS.Where(u => u.Email == email).FirstOrDefault();
+
+            if (find != null)
+            {
+                return new { Msg = "Email ja cadastrado" };
+            }
+            else
+            {
+                HttpContext.Current.Session["email"] = email;
+                return new { Msg = "Email OK" };
+            }
+        }
+
         public bool Create(User user)
         {
             user.Password = this.CriptografarSenha(user.Password);

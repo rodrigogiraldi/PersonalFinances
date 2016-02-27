@@ -1,6 +1,12 @@
 ﻿app.controller('loginController', function ($scope, $http, $location) {
     $scope.isRegister = false;
     $scope.emailOrPasswordWrong = false;
+    $scope.emailAlreadyUsed = false;
+
+    $scope.user = {
+        email: '',
+        password: ''
+    };
 
     $scope.checkLogin = function () {
         $scope.botaoSiginDisable = true;
@@ -37,12 +43,32 @@
         $scope.user.password = '';
     }
 
-    $scope.createUser = function(){
-        $http
-            .post('/Login/Create', $scope.user)
-            .then(function(response) {
-                var result = response;
-            });
+    $scope.createUser = function () {
+        $scope.showProgressCreate = true;
+        var validacaoOk = $scope.formRegister.$valid;
+
+        if (validacaoOk && $scope.user.password == $scope.passwordRepeat) {
+            $http
+                .post('/Login/CheckEmail', $scope.user)
+                .then(function (responseCheck) {
+                    if (responseCheck.data.Msg == 'Email OK') {
+                        $http
+                            .post('/Login/Create', $scope.user)
+                            .then(function (response) {
+                                var result = response;
+                            });
+                        window.location.replace("/");
+                    }
+                    else {
+                        $scope.showProgressCreate = false;
+                        $scope.emailAlreadyUsed = true;
+                    }
+                });
+        }
+        else {
+            $scope.camposInvalidos = true;
+        }
+
     }
 
     $scope.getUsuario = function(){
