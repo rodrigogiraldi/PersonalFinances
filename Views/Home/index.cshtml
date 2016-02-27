@@ -8,9 +8,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="~/favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Personal Finances</title>
 
     <!-- Bootstrap core CSS -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
@@ -54,22 +54,38 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar" ng-controller="sideBarController">
-                    <li class="active" ng-click="bills = !bills"><a href="#">Bills<span class="sr-only">(current)</span></a></li>
-                    <li ng-show="bills"><a href="#">Create</a></li>
-                    <li ng-show="bills"><a href="#">Edit</a></li>
-                    <li ng-show="bills"><a href="#">Search</a></li>
+            <div class="col-sm-3 col-md-2 sidebar" ng-controller="sideBarController">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                </ul>
+
+                <ul class="nav nav-sidebar">
+                    <li class="navTitle">
+                        <a href="" ng-click="menuClick('bills')"><i id="bills" class="glyphicon glyphicon-menu-right"></i>Bills <span class="sr-only">(current)</span></a>
+                        <ul class="nav nav-sidebar nav-item" ng-show='menu["bills"]'>
+                            <li><a href=""><i class="glyphicon glyphicon-plus"></i>Add</a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-pencil"></i>Edit</a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-search"></i>Search</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li class="active" ng-click="charts = !charts"><a href="#">Charts<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#" ng-show="charts">Column</a></li>
-                    <li><a href="#" ng-show="charts">Pizza</a></li>
+                    <li class="navTitle">
+                        <a href="" ng-click="menuClick('charts')"><i id="charts" class="glyphicon glyphicon-menu-right"></i>Charts <span class="sr-only">(current)</span></a>
+                        <ul class="nav nav-sidebar nav-item" ng-show='menu["charts"]'>
+                            <li><a href=""><i class="glyphicon glyphicon-stats"></i>Column</a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-record"></i>Pizza</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li class="active" ng-click="reports = !reports"><a href="#">Reports<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#" ng-show="reports">Report 01</a></li>
-                    <li><a href="#" ng-show="reports">Report 02</a></li>
+                    <li class="navTitle">
+                        <a href="" ng-click="menuClick('reports')"><i id="reports" class="glyphicon glyphicon-menu-right"></i>Reports <span class="sr-only">(current)</span></a>
+                        <ul class="nav nav-sidebar nav-item" ng-show='menu["reports"]'>
+                            <li><a href=""><i class="glyphicon glyphicon-list-alt"></i>Report 01</a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-list-alt"></i>Report 02</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

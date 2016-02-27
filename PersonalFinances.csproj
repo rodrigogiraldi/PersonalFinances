@@ -108,6 +108,7 @@
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\signin.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -3,6 +3,8 @@
     $scope.emailOrPasswordWrong = false;
 
     $scope.checkLogin = function () {
+        $scope.botaoSiginDisable = true;
+        $scope.showProgress = true;
         var validacaoOk = $scope.formLogin.$valid;
 
         if (validacaoOk) {
@@ -12,6 +14,8 @@
                 .then(function (response) {
                     if (response.data.Msg != undefined) {
                         $scope.emailOrPasswordWrong = true;
+                        $scope.botaoSiginDisable = false;
+                        $scope.showProgress = false;
                     }
                     else {
                         $scope.emailOrPasswordWrong = false;
@@ -21,9 +25,9 @@
         }
         else {
             $scope.camposInvalidos = true;
-            $scope.emailOrPasswordWrong = false;
-        }
 
+        }
+        $scope.botaoSiginDisable = false;
     };
 
     $scope.prepararFormCreate = function () {

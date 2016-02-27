@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="~/favicon.ico">
 
     <title>Login</title>
 
@@ -31,12 +32,18 @@
                             <h2 class="form-signin-heading">Sign in</h2>
                             <input name="email" type="email" class="form-control" placeholder="Email" required ng-model="user.email" />
                             <input name="password" type="password" class="form-control" placeholder="Password" required ng-model="user.password" />
-                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" ng-click="checkLogin()" />
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" ng-disabled="botaoSiginDisable" ng-click="checkLogin()" />
                         </form>
+                        <div class="progress" ng-show="showProgress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                <span class="sr-only">100% Complete</span>
+                            </div>
+                        </div>
                         <div class="alert alert-warning" role="alert" ng-show="formLogin.email.$dirty && !formLogin.email.$valid">Field email isn't right.</div>
                         <div class="alert alert-warning" role="alert" ng-show="formLogin.password.$dirty && !formLogin.password.$valid">Field password is required.</div>
                         <div class="alert alert-danger" role="alert" ng-show="camposInvalidos">Check required fields!</div>
                         <div class="alert alert-danger" role="alert" ng-show="emailOrPasswordWrong">Email or password wrong!</div>
+
                         <center><h4>Don't have account? <a href="" ng-click="prepararFormCreate()">Sign up here</a></h4></center>
                     </div>
                     <div>

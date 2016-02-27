@@ -2,3 +2,11 @@
     color: #cfcfcf;
     padding-top: 15px;
 }
+
+.nav-item li{
+    padding-left: 20px;
+}
+
+.navTitle i {
+    padding-right: 5px;
+}
