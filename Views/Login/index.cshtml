@@ -30,7 +30,7 @@
                     <div ng-show="!isRegister">
                         <form name="formLogin" class="form-signin" ng-submit="checkLogin()">
                             <h2 class="form-signin-heading">Sign in</h2>
-                            <input name="email" type="email" class="form-control" placeholder="Email" required ng-model="user.email" />
+                            <input id="email" name="email" type="email" class="form-control" placeholder="Email" required ng-model="user.email" />
                             <input name="password" type="password" class="form-control" placeholder="Password" required ng-model="user.password" />
                             <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" ng-disabled="botaoSiginDisable" ng-submit="checkLogin()" />
                         </form>

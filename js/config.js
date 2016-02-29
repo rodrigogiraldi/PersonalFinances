@@ -1,4 +1,17 @@
-﻿//app.config(['$routeProvider', function ($routeProvider) {
+﻿app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+        .when('/Bill/Add', {
+            templateUrl: 'Bill/Add',
+            controller: 'billController'
+        })
+        .when('/Bill/Edit', {
+            templateUrl: 'Bill/Edit',
+            controller: 'billController'
+        });
+}]);
+
+
+//app.config(['$routeProvider', function ($routeProvider) {
 //    $routeProvider
 //        .when('/', {
 //            template: '<h1>/</h1><p><a href="#Signup">Siginup</a></p>',

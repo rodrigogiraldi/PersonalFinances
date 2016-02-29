@@ -14,5 +14,7 @@ namespace PersonalFinances.DAL
 
         }
         public DbSet<User> USERS { get; set; }
+        public DbSet<Bill> BILLS { get; set; }
+
     }
 }

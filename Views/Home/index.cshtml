@@ -23,10 +23,12 @@
     <script src="~/Scripts/angular-route.js"></script>
 
     <script src="~/js/app.js"></script>
+    <script src="~/js/config.js"></script>
     <script src="~/js/controllers/login.js"></script>
     <script src="~/js/controllers/session.js"></script>
     <script src="~/js/controllers/home.js"></script>
     <script src="~/js/controllers/sidebar.js"></script>
+    <script src="~/js/controllers/bill.js"></script>
 </head>
 
 <body ng-app="appPersonal">
@@ -63,8 +65,8 @@
                     <li class="navTitle">
                         <a href="" ng-click="menuClick('bills')"><i id="bills" class="glyphicon glyphicon-menu-right"></i>Bills <span class="sr-only">(current)</span></a>
                         <ul class="nav nav-sidebar nav-item" ng-show='menu["bills"]'>
-                            <li><a href=""><i class="glyphicon glyphicon-plus"></i>Add</a></li>
-                            <li><a href=""><i class="glyphicon glyphicon-pencil"></i>Edit</a></li>
+                            <li><a href="#Bill/Add"><i class="glyphicon glyphicon-plus"></i>Add</a></li>
+                            <li><a href="#Bill/Edit"><i class="glyphicon glyphicon-pencil"></i>Edit</a></li>
                             <li><a href=""><i class="glyphicon glyphicon-search"></i>Search</a></li>
                         </ul>
                     </li>
@@ -92,7 +94,9 @@
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h1 class="page-header">Dashboard</h1>
+                <div ng-view>
+                </@*div>*@
+                @*<h1 class="page-header">Dashboard</h1>*@
             </div>
         </div>
     </div>
