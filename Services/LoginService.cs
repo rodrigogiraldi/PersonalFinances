@@ -29,6 +29,7 @@ namespace PersonalFinances.Services
             if (find != null)
             {
                 HttpContext.Current.Session["email"] = user.Email;
+                HttpContext.Current.Session["id"] = find.UserId;
                 user.Password = "";
                 return user;
             }

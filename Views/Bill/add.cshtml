@@ -4,14 +4,15 @@
         <label for="name">
             Name
         </label>
-        <input type="text" class="form-control" id="name" required />
+        <input type="text" class="form-control" id="name" ng-model="bill.Name" required />
+        <!--<input type="text" class="form-control" id="name"  required />-->
     </div>
     <div class="form-group">
         <label for="operation">
             Operation
         </label>
-        <select class="form-control" id="operation">
-            <option>In</option>
+        <select class="form-control" id="operation" ng-model="bill.Operation">
+            <option ng-selected="true">In</option>
             <option>Out</option>
         </select>        
     </div>
@@ -19,13 +20,13 @@
         <label for="value">
             Value
         </label>
-        <input type="number" class="form-control" id="value" />
+        <input type="number" class="form-control" id="value" ng-model="bill.Value" min="1" required />
     </div>
     <div class="form-group">
         <label for="method">
             Method
         </label>
-        <select class="form-control" id="method">
+        <select class="form-control" id="method" ng-model="bill.Method">
             <option>Money</option>
             <option>Card</option>
         </select> 
@@ -34,18 +35,23 @@
         <label for="state">
             State
         </label>
-        <select class="form-control" id="state">
+        <select class="form-control" id="state" ng-model="bill.State">
             <option>Paid</option>
-            <option>Not Paid</option>
+            <option value="NotPaid">Not Paid</option>
         </select>
     </div>
     <div class="form-group">
         <label for="date">
             Date
         </label>
-        <input type="date" class="form-control" id="date" />
+        <input type="date" class="form-control" id="date" ng-model="bill.Date" />
     </div>
-    <button type="submit" class="btn btn-default">
+    <div class="form-group">
+        <label for="comment">Description</label>
+        <textarea class="form-control" rows="5" id="comment" ng-model="bill.Description"></textarea>
+    </div>
+    <input type="submit" class="btn btn-default" value="Add" ng-click="BillAdd()" />
+    @*<button type="submit" class="btn btn-default">
         Add
-    </button>
+    </button>*@
 </form>

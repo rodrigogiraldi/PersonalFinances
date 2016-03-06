@@ -1,4 +1,4 @@
-﻿app.controller('loginController', function ($scope, $http, $location) {
+﻿app.controller('loginController', function ($scope, $http, $location, $rootScope) {
     $scope.isRegister = false;
     $scope.emailOrPasswordWrong = false;
     $scope.emailAlreadyUsed = false;

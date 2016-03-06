@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PersonalFinances.Models;
+using PersonalFinances.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,13 @@ namespace PersonalFinances.Controllers
         public ActionResult Add()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult Add(Bill bill)
+        {
+            BillService billService = new BillService();
+            return Json(billService.AddBill(bill));
         }
 
         public ActionResult Edit()

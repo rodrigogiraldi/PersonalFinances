@@ -65,5 +65,10 @@ namespace PersonalFinances.Controllers
         {
             return Json(new { email = Session["email"] }, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult CurrentId()
+        {
+            return Json(new { id = Session["id"] }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
