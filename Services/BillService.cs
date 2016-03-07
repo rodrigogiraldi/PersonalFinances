@@ -23,5 +23,10 @@ namespace PersonalFinances.Services
             this.Context.SaveChanges();
             return new { Msg = "Added" };
         }
+
+        public List<Bill> ListBills()
+        {
+            return this.Context.BILLS.ToList();
+        }
     }
 }

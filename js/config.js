@@ -7,6 +7,10 @@
         .when('/Bill/Edit', {
             templateUrl: 'Bill/Edit',
             controller: 'billController'
+        })
+        .when('/Bill/Search', {
+            templateUrl: 'Bill/Search',
+            controller: 'billController'
         });
 }]);
 

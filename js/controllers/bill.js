@@ -1,7 +1,8 @@
 ﻿app.controller('billController', function ($scope, $http) {
     $scope.bill = {};
-    $scope.BillAdd = function () {
+    $scope.billList = [];
 
+    $scope.BillAdd = function () {
         $http
             .get('/Login/CurrentId')
             .then(function (resp) {
@@ -17,6 +18,14 @@
                             $scope.bill = {};
                         }
                     });
+            });
+    }
+
+    $scope.LoadBillList = function () {
+        $http
+            .get('/Bill/ListAll')
+            .then(function (response) {
+                $scope.billList = response.data;
             });
     }
 });

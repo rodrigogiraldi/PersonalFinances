@@ -10,6 +10,13 @@ namespace PersonalFinances.Controllers
 {
     public class BillController : BaseController
     {
+        BillService billService;
+
+        public BillController()
+        {
+            this.billService = new BillService();
+        }
+
         public ActionResult Add()
         {
             return View();
@@ -18,13 +25,23 @@ namespace PersonalFinances.Controllers
         [HttpPost]
         public JsonResult Add(Bill bill)
         {
-            BillService billService = new BillService();
+            
             return Json(billService.AddBill(bill));
         }
 
         public ActionResult Edit()
         {
             return View();
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        public JsonResult ListAll()
+        {
+            return Json(this.billService.ListBills(), JsonRequestBehavior.AllowGet);
         }
     }
 }

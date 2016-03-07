@@ -922,6 +922,7 @@
     <None Include="Views\Home\index.cshtml" />
     <None Include="Views\Bill\add.cshtml" />
     <None Include="Views\Bill\edit.cshtml" />
+    <None Include="Views\Bill\search.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
