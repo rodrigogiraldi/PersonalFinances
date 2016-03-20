@@ -28,5 +28,17 @@ namespace PersonalFinances.Services
         {
             return this.Context.BILLS.ToList();
         }
+
+        public List<Bill> ListBillsByName(string name)
+        {
+            if (String.IsNullOrEmpty(name))
+            {
+                return this.Context.BILLS.ToList();
+            }
+            else
+            {
+                return this.Context.BILLS.Where(w => w.Name.Contains(name)).ToList();
+            }
+        }
     }
 }

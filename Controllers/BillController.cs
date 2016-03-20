@@ -43,5 +43,11 @@ namespace PersonalFinances.Controllers
         {
             return Json(this.billService.ListBills(), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public JsonResult ListByName(Bill bill)
+        {
+            return Json(this.billService.ListBillsByName(bill.Name));
+        }
     }
 }

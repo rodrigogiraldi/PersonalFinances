@@ -66,12 +66,12 @@
                         <a href="" ng-click="menuClick('bills')"><i id="bills" class="glyphicon glyphicon-menu-right"></i>Bills <span class="sr-only">(current)</span></a>
                         <ul class="nav nav-sidebar nav-item" ng-show='menu["bills"]'>
                             <li><a href="#Bill/Add"><i class="glyphicon glyphicon-plus"></i>Add</a></li>
-                            <li><a href="#Bill/Edit"><i class="glyphicon glyphicon-pencil"></i>Edit</a></li>
+                            @*<li><a href="#Bill/Edit"><i class="glyphicon glyphicon-pencil"></i>Edit</a></li>*@
                             <li><a href="#Bill/Search"><i class="glyphicon glyphicon-search"></i>Search</a></li>
                         </ul>
                     </li>
                 </ul>
-                <ul class="nav nav-sidebar">
+                <!--<ul class="nav nav-sidebar">
                     <li class="navTitle">
                         <a href="" ng-click="menuClick('charts')"><i id="charts" class="glyphicon glyphicon-menu-right"></i>Charts <span class="sr-only">(current)</span></a>
                         <ul class="nav nav-sidebar nav-item" ng-show='menu["charts"]'>
@@ -91,7 +91,7 @@
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li class="navTitle"><a href=""><i id="reports" class="glyphicon glyphicon-wrench"></i>Settings <span class="sr-only">(current)</span></a></li>
-                </ul>
+                </ul>-->
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <div ng-view>

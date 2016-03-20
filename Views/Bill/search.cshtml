@@ -2,35 +2,35 @@
     <h1 class="page-header">Search Bill</h1>
     <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Bill name" ng-model="nameSearch">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" ng-click="LoadBillListByName(nameSearch)">Search</button>
     </form>
     <table class="table">
         <thead>
             <tr>
-                <th>
+                <th ng-click="criterioOrder = 'Name'">
                     Name
                 </th>
-                <th>
+                <th ng-click="criterioOrder = 'Operation'">
                     Operation
                 </th>
-                <th>
+                <th ng-click="criterioOrder = 'Value'">
                     Value
                 </th>
-                <th>
+                <th ng-click="criterioOrder = 'Date'">
                     Date
                 </th>
-                <th>
+                <th ng-click="criterioOrder = 'Method'">
                     Method
                 </th>
-                <th>
+                <th ng-click="criterioOrder = 'State'">
                     State
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="bill in billList">
+            <tr ng-repeat="bill in billList | orderBy : criterioOrder">
                 <td>
                     {{bill.Name}}
                 </td>
@@ -41,7 +41,7 @@
                     {{bill.Value}}
                 </td>
                 <td>
-                    {{bill.Date}}
+                    {{bill.Date | date}}
                 </td>
                 <td>
                     {{bill.Method}}
